@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: `https://pruebas.midasoft.co:5443/Apis_DLLO`,
+  apiSerie: `https://rickandmortyapi.com/api`
 };
 
 /*

@@ -1,0 +1,19 @@
+<div class="favorites">
+  <h1>Favoritos</h1>
+  <ng-container *ngIf="listFavorites.length > 0; else elseTemplate">
+    <div class="favorites-list">
+      <app-card [data]="listFavorites" (footerActionFirt)="editComents($event)" (footerActionSecond)="dislike($event)" ></app-card>
+    </div>
+    <div>
+      <mat-paginator
+        [length]="count"
+        [pageSize]="optionsRange"
+        [pageSizeOptions]="[optionsRange]"
+        (page)="changePage($event)">
+      </mat-paginator>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <app-alert [module]="titleModule"></app-alert>
+  </ng-template>
+</div>

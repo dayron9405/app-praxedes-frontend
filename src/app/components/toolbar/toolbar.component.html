@@ -1,0 +1,13 @@
+<mat-toolbar class="toolbarApp" color="primary">
+  <button mat-icon-button class="example-icon" (click)="openSidebarEmiter()" aria-label="Example icon-button with menu icon">
+    <mat-icon>vertical_split</mat-icon>
+  </button>
+  <span>Praxedes</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">Cerrar Sesión</button>
+  </mat-menu>
+</mat-toolbar>

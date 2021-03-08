@@ -1,0 +1,39 @@
+<div class="login">
+    <mat-card class="login-card animate__animated animate__fadeInLeft">
+        <form [formGroup]="loginForm">
+          <mat-card-header class="login-card-head">
+            <mat-card-title class="login-card-head-title">Iniciar Sesión</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="login-card-content">
+            <mat-form-field class="login-card-content-input" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="username">
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngFor="let item of fiteredValidation('username')">
+                <span class="errorIcon" *ngIf="!loginForm.get('username').errors ? false : loginForm.get('username').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="login-card-content-input" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" autocomplete="off" formControlName="password">
+              <button mat-icon-button matSuffix (click)="changeHidePassword($event)" [attr.aria-label]="'hidePassword password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngFor="let item of fiteredValidation('password')">
+                <span class="errorIcon" *ngIf="!loginForm.get('password').errors ? false : loginForm.get('password').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+            <section class="login-card-content-footer">
+              <mat-checkbox [(ngModel)]="remember" formControlName="remember" color="primary">Recordar mi usuario</mat-checkbox>
+              <div>
+                <a [routerLink]="['/register']">¿No tienes cuenta? registrate</a>
+              </div>
+            </section>
+          </mat-card-content>
+          <mat-card-actions class="login-card-actions">
+            <button mat-raised-button class="login-card-actions-button" color="primary" (click)="login()">INGRESAR</button>
+          </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
+

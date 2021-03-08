@@ -1,0 +1,78 @@
+<div class="register">
+  <mat-card class="register-card animate__animated animate__fadeInRight">
+      <form [formGroup]="registerForm">
+        <mat-card-header class="register-card-head">
+          <mat-card-title class="register-card-head-title">Crear Nueva Cuenta</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="register-card-content">
+          <div class="register-card-content-form">
+            <mat-form-field class="register-card-content-form-input" appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="nombre">
+              <mat-icon matSuffix>account_circle</mat-icon>
+              <mat-error *ngFor="let item of fiteredValidation('nombre')">
+                <span class="errorIcon" *ngIf="!registerForm.get('nombre').errors ? false : registerForm.get('nombre').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="register-card-content-form-input" appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="apellido">
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngFor="let item of fiteredValidation('apellido')">
+                <span class="errorIcon" *ngIf="!registerForm.get('apellido').errors ? false : registerForm.get('apellido').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="register-card-content-form-input" appearance="outline">
+              <mat-label>Numero de Documento</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="doctoIdent">
+              <mat-icon matSuffix>pin</mat-icon>
+              <mat-error *ngFor="let item of fiteredValidation('doctoIdent')">
+                <span class="errorIcon" *ngIf="!registerForm.get('doctoIdent').errors ? false : registerForm.get('doctoIdent').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="register-card-content-form-input" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="email">
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngFor="let item of fiteredValidation('email')">
+                <span class="errorIcon" *ngIf="!registerForm.get('email').errors ? false : registerForm.get('email').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="register-card-content-form-input" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" autocomplete="off" formControlName="clave">
+              <button mat-icon-button matSuffix (click)="changeHidePassword($event)" [attr.aria-label]="'hidePassword password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngFor="let item of fiteredValidation('clave')">
+                <span class="errorIcon" *ngIf="!registerForm.get('clave').errors ? false : registerForm.get('clave').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="register-card-content-form-input" appearance="outline">
+              <mat-label>Confirmar Contraseña</mat-label>
+              <input matInput [type]="hidePasswordConfirm ? 'password' : 'text'" autocomplete="off" formControlName="claveConfirmar">
+              <button mat-icon-button matSuffix (click)="changeHidePasswordConfirm($event)" [attr.aria-label]="'hidePasswordConfirm password'" [attr.aria-pressed]="hidePasswordConfirm">
+                <mat-icon>{{hidePasswordConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngFor="let item of fiteredValidation('claveConfirmar')">
+                <span class="errorIcon" *ngIf="!registerForm.get('claveConfirmar').errors ? false : registerForm.get('claveConfirmar').errors[item.validators] ? true : false">{{ item.message }}</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <mat-error *ngIf="!registerForm.errors ? false : registerForm.errors.notSame ? true : false">
+            <span class="register-card-content-form-error errorIcon">Contraseñas no son compatibles</span>
+          </mat-error>
+          <section class="register-card-content-footer">
+            <mat-checkbox [(ngModel)]="remember" formControlName="remember" color="primary">Recordar mi usuario</mat-checkbox>
+            <div>
+              <a [routerLink]="['/']">¿Ya tienes cuenta? Inicia Sesión</a>
+            </div>
+          </section>
+        </mat-card-content>
+        <mat-card-actions class="register-card-actions">
+          <button mat-raised-button class="register-card-actions-button" color="primary" (click)="register()">GUARDAR</button>
+        </mat-card-actions>
+      </form>
+  </mat-card>
+</div>
+

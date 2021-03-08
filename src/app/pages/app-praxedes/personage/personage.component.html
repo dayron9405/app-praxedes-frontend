@@ -1,0 +1,19 @@
+<div class="personages">
+  <h1>Personajes</h1>
+  <ng-container *ngIf="listPersonages.length > 0; else elseTemplate">
+    <div class="personages-list">
+      <app-list [options]="listPersonages" (selectOptionEmiter)="selectedOption($event)"></app-list>
+    </div>
+    <div>
+      <mat-paginator
+        [length]="count"
+        [pageSize]="optionsRange"
+        [pageSizeOptions]="[optionsRange]"
+        (page)="changePage($event)">
+      </mat-paginator>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <app-alert [module]="titleModule"></app-alert>
+  </ng-template>
+</div>

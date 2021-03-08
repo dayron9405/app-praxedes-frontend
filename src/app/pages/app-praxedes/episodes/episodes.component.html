@@ -1,0 +1,20 @@
+
+<div class="episodes">
+  <h1>Episodios</h1>
+  <ng-container *ngIf="listEpisodes.length > 0; else elseTemplate">
+    <div class="episodes-cards">
+      <app-card [data]="listEpisodes" (contentAction)="openDialog($event)"></app-card>
+    </div>
+    <div>
+      <mat-paginator
+        [length]="count"
+        [pageSize]="optionsRange"
+        [pageSizeOptions]="[optionsRange]"
+        (page)="changePage($event)">
+      </mat-paginator>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <app-alert [module]="titleModule"></app-alert>
+  </ng-template>
+</div>

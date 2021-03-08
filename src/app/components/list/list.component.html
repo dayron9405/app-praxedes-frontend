@@ -1,0 +1,21 @@
+<div class="lists">
+  <mat-selection-list [multiple]="false">
+    <mat-list-option *ngFor="let option of dataList">
+      <div class="lists-options">
+        <div mat-card-avatar [ngStyle]="{ 'background-image': 'url(' + option.image + ')', 'background-size': 'cover' }"></div>
+        <div>
+          {{option.name}}
+        </div>
+        <div>
+          {{option.species}}
+        </div>
+        <div>
+          <button mat-icon-button aria-label="Example icon button with a heart icon" (click)="selectedOption(option)">
+            <mat-icon *ngIf="option.isFavorite" color="primary">favorite</mat-icon>
+            <mat-icon *ngIf="!option.isFavorite">favorite_border</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
+</div>

@@ -1,0 +1,18 @@
+<mat-drawer-container class="sidebar" [hasBackdrop]="true">
+  <mat-drawer class="sidebar-menu" #drawer [mode]="'push'">
+    <div class="sidebar-menu-head">
+      <button mat-icon-button class="sidebar-menu-head-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu_open icon">
+        <mat-icon>menu_open</mat-icon>
+      </button>
+      <mat-divider></mat-divider>
+    </div>
+    <app-tree-menu></app-tree-menu>
+  </mat-drawer>
+  <mat-drawer-content class="sidebar-content">
+    <app-toolbar (openSidebar)="drawer.toggle(); openSidebar($event)"></app-toolbar>
+    <div class="sidebar-content-routes">
+      <h1>Serie Rick & Morty</h1>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

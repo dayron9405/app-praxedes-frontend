@@ -1,0 +1,88 @@
+@import '../../../assets/scss/index.scss';
+
+.register{
+  background-color: $back-Initial !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 5s !important;
+
+  &-card{
+    padding: 40px;
+    margin: 40px;
+    width: 450px;
+    max-width: 450px;
+    height: 430px;
+    max-height: 430px;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(218,218,218,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(218,218,218,0.2);
+
+    &-head{
+      width: 100%;
+      height: 80px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-title{
+        font-size: 24px;
+      }
+    }
+
+    &-content{
+
+      &-form{
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        &-input{
+          margin-top: 10px;
+          width: 96%;
+        }
+
+        &-error{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-size: 11px;
+
+          span{
+            width: 100%;
+          }
+        }
+      }
+
+      &-footer{
+        margin-top: 6px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &-actions{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-button{
+        width: 95%;
+        height: 40px;
+        transition: all 0.5s;
+      }
+
+      &-button:hover {
+        width: 100%;
+        height: 50px;
+        margin-top: -4px;
+      }
+
+    }
+  }
+}

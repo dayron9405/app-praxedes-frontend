@@ -1,0 +1,9 @@
+<div class="dialog">
+  <h2 mat-dialog-title>Personajes - Episodio {{ episodio }}</h2>
+  <mat-dialog-content class="dialog-content">
+    <app-list [options]="data" (selectOptionEmiter)="selectedOption($event)"></app-list>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="false">Cerrar</button>
+  </mat-dialog-actions>
+</div>

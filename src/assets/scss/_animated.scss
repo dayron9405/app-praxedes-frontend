@@ -1,0 +1,23 @@
+.mat-error{
+  position: relative;
+  animation: tremor 0.3s;
+}
+
+.mat-form-field-invalid{
+  position: relative;
+  animation: tremor 0.3s;
+}
+
+@keyframes tremor {
+  0%   {left: 10px;}
+  20%  {left: 0px;}
+  40%  {left: 10px;}
+  60%  {left: 0px;}
+  80%  {left: 10px;}
+  100% {left: 0px;}
+}
+
+.errorIcon::before{
+  display: inline;
+  content: "⚠  ";
+}

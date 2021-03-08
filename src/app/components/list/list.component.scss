@@ -1,0 +1,10 @@
+.lists{
+
+  &-options{
+    display: grid !important;
+    grid-template-columns: 20% 35% 35% 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}

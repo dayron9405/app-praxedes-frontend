@@ -1,0 +1,44 @@
+.cards{
+
+  &-group{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+
+    &-card{
+      width: 86%;
+      margin-top: 20px;
+      transition: all 0.5s;
+
+      &-image{
+        height: 320px;
+      }
+
+      &-content{
+
+        &-button{
+          display: block;
+          width: 100%;
+        }
+      }
+
+      &-action{
+
+        &-buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+
+    }
+
+    &-card:hover{
+      background-color: rgb(224, 224, 224);
+      margin-top: 15px;
+      // height: 85% !important;
+      width: 90% !important;
+      margin-left: -8px;
+    }
+  }
+}

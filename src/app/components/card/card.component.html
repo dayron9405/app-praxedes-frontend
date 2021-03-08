@@ -1,0 +1,33 @@
+<div class="cards">
+  <div class="cards-group">
+    <mat-card class="cards-group-card" *ngFor="let item of dataCard">
+      <mat-card-header>
+        <div *ngIf="item.avatar.isAvatar" mat-card-avatar [ngStyle]="{ 'background-image': 'url(' + item.avatar.img + ')', 'background-size': 'cover' }"></div>
+        <mat-card-title>{{ item.title }}</mat-card-title>
+        <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <div *ngIf="item.imageHead.isImageHead">
+        <img class="cards-group-card-image" mat-card-image [src]="item.imageHead.img" [alt]="item.title">
+      </div>
+      <mat-card-content class="cards-group-card-content">
+        <div *ngIf="item.contentText.isContentText">
+          <p>{{ item.contentText.text }}</p>
+        </div>
+        <div *ngIf="item.contentAction.isContentAction">
+          <button class="cards-group-card-content-button" (click)="contentActionEmiter(item.contentAction.dataAction)" mat-raised-button color="primary">Ver Personajes</button>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="cards-group-card-action" *ngIf="item.footerAction.isFooterAction">
+        <div class="cards-group-card-action-buttons">
+          <button mat-icon-button aria-label="Example icon button with a heart icon" (click)="footerActionfirtEmiter(item.footerAction.dataAction)">
+            <mat-icon color="primary">rate_review</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Example icon button with a heart icon" (click)="footerActionSecondEmiter(item.footerAction.dataAction)">
+            <mat-icon color="primary">favorite</mat-icon>
+          </button>
+        </div>
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
